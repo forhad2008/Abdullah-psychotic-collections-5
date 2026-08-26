@@ -22,9 +22,15 @@
   --accent:#a8040f;
 }
 
-*{box-sizing:border-box;margin:0;padding:0}
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
 
-html{scroll-behavior:smooth}
+html{
+  scroll-behavior:smooth;
+}
 
 body{
   background:var(--bg);
@@ -33,7 +39,10 @@ body{
   overflow-x:hidden;
 }
 
-a{color:inherit;text-decoration:none}
+a{
+  color:inherit;
+  text-decoration:none;
+}
 
 .collection-page{
   width:min(1400px,100%);
@@ -182,7 +191,7 @@ a{color:inherit;text-decoration:none}
   letter-spacing:.4px;
 }
 
-/* 33 IMAGE GRID */
+/* COLLECTION GRID */
 .collection-grid{
   display:grid;
   grid-template-columns:repeat(3,minmax(0,1fr));
@@ -211,6 +220,12 @@ a{color:inherit;text-decoration:none}
     transparent 70%
   );
   pointer-events:none;
+}
+
+.collection-card a{
+  display:block;
+  width:100%;
+  height:100%;
 }
 
 .collection-card img{
@@ -281,7 +296,9 @@ a{color:inherit;text-decoration:none}
   opacity:.82;
 }
 
-.card-link i{font-size:8px}
+.card-link i{
+  font-size:8px;
+}
 
 /* PAGINATION */
 .pagination{
@@ -296,6 +313,9 @@ a{color:inherit;text-decoration:none}
   min-width:38px;
   height:38px;
   padding:0 12px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
   border:1px solid var(--line);
   border-radius:10px;
   background:#11110f;
@@ -331,27 +351,76 @@ a{color:inherit;text-decoration:none}
 
 /* MOBILE */
 @media(max-width:850px){
-  .collection-page{padding:22px 12px 45px}
-  .collection-head{margin-top:10px;margin-bottom:25px}
-  .profile-link{width:66px;height:66px}
-  .profile-name{font-size:20px}
-  .profile-subtitle{font-size:8px;letter-spacing:2.2px}
-  .follow-btn{padding:11px 18px;font-size:11px}
-  .collection-nav{gap:25px}
-  .collection-nav button{font-size:10px}
+
+  .collection-page{
+    padding:22px 12px 45px;
+  }
+
+  .collection-head{
+    margin-top:10px;
+    margin-bottom:25px;
+  }
+
+  .profile-link{
+    width:66px;
+    height:66px;
+  }
+
+  .profile-name{
+    font-size:20px;
+  }
+
+  .profile-subtitle{
+    font-size:8px;
+    letter-spacing:2.2px;
+  }
+
+  .follow-btn{
+    padding:11px 18px;
+    font-size:11px;
+  }
+
+  .collection-nav{
+    gap:25px;
+  }
+
+  .collection-nav button{
+    font-size:10px;
+  }
 
   .collection-grid{
     grid-template-columns:repeat(2,minmax(0,1fr));
     gap:8px;
   }
 
-  .collection-card{border-radius:15px}
-  .card-info{left:11px;bottom:11px}
-  .card-name{font-size:10px;letter-spacing:.8px}
-  .card-caption{font-size:7px;letter-spacing:.8px}
-  .card-link{font-size:7px;margin-top:5px}
+  .collection-card{
+    border-radius:15px;
+  }
 
-  .pagination{margin-top:22px;gap:6px}
+  .card-info{
+    left:11px;
+    bottom:11px;
+  }
+
+  .card-name{
+    font-size:10px;
+    letter-spacing:.8px;
+  }
+
+  .card-caption{
+    font-size:7px;
+    letter-spacing:.8px;
+  }
+
+  .card-link{
+    font-size:7px;
+    margin-top:5px;
+  }
+
+  .pagination{
+    margin-top:22px;
+    gap:6px;
+  }
 
   .pagination a{
     min-width:34px;
@@ -370,11 +439,32 @@ a{color:inherit;text-decoration:none}
 }
 
 @media(max-width:430px){
-  .profile-actions{display:none}
-  .profile-name{font-size:19px}
-  .collection-grid{gap:6px}
-  .collection-card{border-radius:13px}
-  .collection-intro h1{font-size:22px}
+
+  .profile-actions{
+    display:none;
+  }
+
+  .profile-name{
+    font-size:19px;
+  }
+
+  .collection-grid{
+    gap:6px;
+  }
+
+  .collection-card{
+    border-radius:13px;
+  }
+
+  .collection-intro h1{
+    font-size:22px;
+  }
+
+  .collection-footer{
+    flex-direction:column;
+    align-items:flex-start;
+    gap:8px;
+  }
 }
 </style>
 </head>
@@ -385,28 +475,37 @@ a{color:inherit;text-decoration:none}
 
   <!-- PROFILE / COLLECTION HEADER -->
   <header class="collection-head">
-    <a class="profile-link" href="https://forhad2008.github.io/Abdullah-psychotic/" aria-label="Abdullah Psychotic home">
+
+    <a class="profile-link"
+       href="https://forhad2008.github.io/Abdullah-psychotic/"
+       aria-label="Abdullah Psychotic home">
       <img src="pro.webp" alt="Abdullah Psychotic">
     </a>
 
     <div class="profile-info">
       <div class="profile-name">
         <span>Abdullah Psychotic</span>
-        <span class="verified"><i class="fas fa-check"></i></span>
+        <span class="verified">
+          <i class="fas fa-check"></i>
+        </span>
       </div>
+
       <div class="profile-subtitle">Collection</div>
     </div>
 
     <div class="profile-actions">
       <button class="follow-btn" id="followBtn">Follow</button>
     </div>
+
   </header>
 
+  <!-- COLLECTION NAV -->
   <nav class="collection-nav" aria-label="Collection navigation">
     <button class="active" data-filter="all">Created</button>
     <button data-filter="saved">Popular</button>
   </nav>
 
+  <!-- INTRO -->
   <section class="collection-intro">
     <h1>THE 5TH CHAPTER</h1>
     <p>
@@ -415,10 +514,14 @@ a{color:inherit;text-decoration:none}
     </p>
   </section>
 
-  <!-- JAVASCRIPT CREATES ALL 33 IMAGE BOXES HERE -->
-  <section id="collectionGrid" class="collection-grid" aria-label="Abdullah Psychotic collection"></section>
+  <!-- COLLECTION GRID -->
+  <section
+    id="collectionGrid"
+    class="collection-grid"
+    aria-label="Abdullah Psychotic collection">
+  </section>
 
-  <!-- ONLY 1, 3 AND 4 BUTTONS -->
+  <!-- PAGINATION -->
   <div class="pagination" aria-label="Collection pages">
     <a href="https://forhad2008.github.io/Abdullah-psychotic-collections/">1</a>
     <a href="https://forhad2008.github.io/Abdullah-psychotic-collections-3/">3</a>
@@ -426,6 +529,7 @@ a{color:inherit;text-decoration:none}
     <a href="index.html" class="active">5</a>
   </div>
 
+  <!-- FOOTER -->
   <div class="collection-footer">
     <span id="collectionCount">33 designs · 135—167</span>
     <span>Abdullah Psychotic © 2026</span>
@@ -434,26 +538,14 @@ a{color:inherit;text-decoration:none}
 </main>
 
 <script>
-/*
-=========================================================
-  ABDULLAH PSYCHOTIC — 33 COLLECTION ITEMS
 
-  PAGE 4 — IMAGES 135.webp TO 167.webp.
-
-  PRODUCT NAMES ARE KEPT AS INDIVIDUAL EDITABLE ITEMS.
-
-  To change a product name:
-  name:"Your Product Name"
-
-  To change an image:
-  image:"your-image.webp"
-
-  To change the destination:
-  link:"product.html?id=your-product"
-=========================================================
-*/
+/* =========================================================
+   ABDULLAH PSYCHOTIC — COLLECTION CHAPTER 5
+   33 DESIGNS — IMAGES 135.webp TO 167.webp
+========================================================= */
 
 const collectionItems = [
+
   {
     name:"Stylish Sigma Outfit",
     caption:"Abdullah Psychotic",
@@ -461,6 +553,7 @@ const collectionItems = [
     link:"135.webp",
     saved:true
   },
+
   {
     name:"Public Enemy Hat",
     caption:"Abdullah Psychotic",
@@ -468,20 +561,23 @@ const collectionItems = [
     link:"136.webp",
     saved:true
   },
+
   {
-    name:"Tunnel painting",
+    name:"Tunnel Painting",
     caption:"Abdullah Psychotic",
     image:"137.webp",
     link:"137.webp",
     saved:true
   },
+
   {
-    name:"Saint t-shirt",
+    name:"Saint T-Shirt",
     caption:"Abdullah Psychotic",
     image:"138.webp",
     link:"138.webp",
     saved:true
   },
+
   {
     name:"Fighting Gloves",
     caption:"Abdullah Psychotic",
@@ -489,20 +585,23 @@ const collectionItems = [
     link:"139.webp",
     saved:true
   },
+
   {
-    name:"Outfit",
+    name:"Signature Outfit",
     caption:"Abdullah Psychotic",
     image:"140.webp",
     link:"140.webp",
     saved:true
   },
+
   {
-    name:"Watches",
+    name:"Luxury Watches",
     caption:"Abdullah Psychotic",
     image:"141.webp",
     link:"141.webp",
     saved:true
   },
+
   {
     name:"Psycho's Blood Perfume",
     caption:"Abdullah Psychotic",
@@ -510,13 +609,15 @@ const collectionItems = [
     link:"142.webp",
     saved:true
   },
+
   {
-    name:"Perfumes",
+    name:"Luxury Perfumes",
     caption:"Abdullah Psychotic",
     image:"143.webp",
     link:"143.webp",
     saved:true
   },
+
   {
     name:"Stylish Outfit",
     caption:"Abdullah Psychotic",
@@ -524,6 +625,7 @@ const collectionItems = [
     link:"144.webp",
     saved:true
   },
+
   {
     name:"Wanted Hat",
     caption:"Abdullah Psychotic",
@@ -531,230 +633,292 @@ const collectionItems = [
     link:"145.webp",
     saved:true
   },
+
   {
-    name:"Product 112",
+    name:"Abdullah Psychotic Design",
     caption:"Abdullah Psychotic",
     image:"146.webp",
     link:"146.webp",
     saved:true
   },
+
   {
-    name:"Product 113",
+    name:"Abdullah Psychotic Design",
     caption:"Abdullah Psychotic",
     image:"147.webp",
     link:"147.webp",
     saved:true
   },
+
   {
-    name:"Product 114",
+    name:"Abdullah Psychotic Design",
     caption:"Abdullah Psychotic",
     image:"148.webp",
     link:"148.webp",
     saved:true
   },
+
   {
-    name:"Product 115",
+    name:"Abdullah Psychotic Design",
     caption:"Abdullah Psychotic",
     image:"149.webp",
     link:"149.webp",
     saved:true
   },
+
   {
-    name:"Product 116",
+    name:"Abdullah Psychotic Design",
     caption:"Abdullah Psychotic",
     image:"150.webp",
     link:"150.webp",
     saved:true
   },
+
   {
-    name:"Product 117",
+    name:"Abdullah Psychotic Design 151",
     caption:"Abdullah Psychotic",
-    image:"117.webp",
-    link:"117.webp",
+    image:"151.webp",
+    link:"151.webp",
     saved:true
   },
+
   {
-    name:"Product 118",
+    name:"Abdullah Psychotic Design 152",
     caption:"Abdullah Psychotic",
-    image:"118.webp",
-    link:"118.webp",
+    image:"152.webp",
+    link:"152.webp",
     saved:true
   },
+
   {
-    name:"Product 119",
+    name:"Abdullah Psychotic Design 153",
     caption:"Abdullah Psychotic",
-    image:"119.webp",
-    link:"119.webp",
+    image:"153.webp",
+    link:"153.webp",
     saved:true
   },
+
   {
-    name:"Product 120",
+    name:"Abdullah Psychotic Design 154",
     caption:"Abdullah Psychotic",
-    image:"120.webp",
-    link:"120.webp",
+    image:"154.webp",
+    link:"154.webp",
     saved:true
   },
+
   {
-    name:"Product 121",
+    name:"Abdullah Psychotic Design 155",
     caption:"Abdullah Psychotic",
-    image:"121.webp",
-    link:"121.webp",
+    image:"155.webp",
+    link:"155.webp",
     saved:true
   },
+
   {
-    name:"Product 122",
+    name:"Abdullah Psychotic Design 156",
     caption:"Abdullah Psychotic",
-    image:"122.webp",
-    link:"122.webp",
+    image:"156.webp",
+    link:"156.webp",
     saved:true
   },
+
   {
-    name:"Product 123",
+    name:"Abdullah Psychotic Design 157",
     caption:"Abdullah Psychotic",
-    image:"123.webp",
-    link:"123.webp",
+    image:"157.webp",
+    link:"157.webp",
     saved:true
   },
+
   {
-    name:"Product 124",
+    name:"Abdullah Psychotic Design 158",
     caption:"Abdullah Psychotic",
-    image:"124.webp",
-    link:"124.webp",
+    image:"158.webp",
+    link:"158.webp",
     saved:true
   },
+
   {
-    name:"Elegant Modern Red Dress",
+    name:"Abdullah Psychotic Design 159",
     caption:"Abdullah Psychotic",
-    image:"125.2.webp",
-    link:"125.2.webp",
+    image:"159.webp",
+    link:"159.webp",
     saved:true
   },
+
   {
-    name:"Special black nightfall party dress",
+    name:"Abdullah Psychotic Design 160",
     caption:"Abdullah Psychotic",
-    image:"126.webp",
-    link:"126.webp",
+    image:"160.webp",
+    link:"160.webp",
     saved:true
   },
+
   {
-    name:"Special black nightfall party dress",
+    name:"Abdullah Psychotic Design 161",
     caption:"Abdullah Psychotic",
-    image:"127.2.webp",
-    link:"127.2.webp",
+    image:"161.webp",
+    link:"161.webp",
     saved:true
   },
+
   {
-    name:"Monster Axe",
+    name:"Abdullah Psychotic Design 162",
     caption:"Abdullah Psychotic",
-    image:"128.webp",
-    link:"128.webp",
+    image:"162.webp",
+    link:"162.webp",
     saved:true
   },
+
   {
-    name:"The Deadlist Axe",
+    name:"Abdullah Psychotic Design 163",
     caption:"Abdullah Psychotic",
-    image:"129.webp",
-    link:"129.webp",
+    image:"163.webp",
+    link:"163.webp",
     saved:true
   },
+
   {
-    name:"Special red nightfall party dress",
+    name:"Abdullah Psychotic Design 164",
     caption:"Abdullah Psychotic",
-    image:"130.webp",
-    link:"130.1.webp",
+    image:"164.webp",
+    link:"164.webp",
     saved:true
   },
+
   {
-    name:"Product 131",
+    name:"Abdullah Psychotic Design 165",
     caption:"Abdullah Psychotic",
-    image:"131.webp",
-    link:"131.webp",
+    image:"165.webp",
+    link:"165.webp",
     saved:true
   },
+
   {
-    name:"Product 132",
+    name:"Abdullah Psychotic Design 166",
     caption:"Abdullah Psychotic",
-    image:"132.webp",
-    link:"132.webp",
+    image:"166.webp",
+    link:"166.webp",
     saved:true
   },
+
   {
-    name:"Product 133",
+    name:"Abdullah Psychotic Design 167",
     caption:"Abdullah Psychotic",
-    image:"133.webp",
-    link:"133.webp",
-    saved:true
-  },
-  {
-    name:"Product 134",
-    caption:"Abdullah Psychotic",
-    image:"134.webp",
-    link:"134.webp",
+    image:"167.webp",
+    link:"167.webp",
     saved:true
   }
+
 ];
 
+
+/* ELEMENTS */
 const grid = document.getElementById("collectionGrid");
 const count = document.getElementById("collectionCount");
 const filterButtons = document.querySelectorAll(".collection-nav button");
 
+
+/* CREATE CARD — FIXED INDEX BUG */
 function createCollectionCard(item, index){
+
+  const imageNumber = String(
+    Number(item.image.split(".")[0])
+  ).padStart(3,"0");
+
   return `
     <article class="collection-card">
+
       <a href="${item.link}" aria-label="Open ${item.name}">
+
         <img
           src="${item.image}"
           alt="${item.name}"
           loading="${index < 6 ? "eager" : "lazy"}"
-          onerror="this.onerror=null;this.src='https://picsum.photos/900/1200?random=${index+700}'"
         >
 
-        <span class="card-number">${String(index + 135).padStart(3,"0")}</span>
+        <span class="card-number">
+          ${imageNumber}
+        </span>
 
         <div class="card-info">
-          <div class="card-name">${item.name}</div>
-          <div class="card-caption">${item.caption}</div>
+
+          <div class="card-name">
+            ${item.name}
+          </div>
+
+          <div class="card-caption">
+            ${item.caption}
+          </div>
+
           <span class="card-link">
-            View design <i class="fas fa-arrow-right"></i>
+            View design
+            <i class="fas fa-arrow-right"></i>
           </span>
+
         </div>
+
       </a>
+
     </article>
   `;
 }
 
-function renderCollection(mode="all"){
-  const visibleItems = mode === "saved"
-    ? collectionItems.filter(item => item.saved)
-    : collectionItems;
+
+/* RENDER COLLECTION */
+function renderCollection(mode = "all"){
+
+  const visibleItems =
+    mode === "saved"
+      ? collectionItems.filter(item => item.saved)
+      : collectionItems;
 
   grid.innerHTML = visibleItems
-    .map((item,index) => createCollectionCard(item,index))
+    .map((item, index) => createCollectionCard(item, index))
     .join("");
 
   count.textContent =
-    `${visibleItems.length} ${visibleItems.length === 1 ? "design" : "designs"} · 101—134`;
+    `${visibleItems.length} ${
+      visibleItems.length === 1 ? "design" : "designs"
+    } · 135—167`;
 }
 
+
+/* FILTER BUTTONS */
 filterButtons.forEach(button => {
+
   button.addEventListener("click", () => {
-    filterButtons.forEach(btn => btn.classList.remove("active"));
+
+    filterButtons.forEach(btn =>
+      btn.classList.remove("active")
+    );
+
     button.classList.add("active");
+
     renderCollection(button.dataset.filter);
+
   });
+
 });
+
 
 /* FOLLOW BUTTON */
 const followBtn = document.getElementById("followBtn");
 let followed = false;
 
 followBtn.addEventListener("click", () => {
+
   followed = !followed;
-  followBtn.textContent = followed ? "Following" : "Follow";
+
+  followBtn.textContent =
+    followed ? "Following" : "Follow";
+
 });
 
-/* START WITH ALL 33 PAGE-4 DESIGNS — NUMBERED 135 TO 167 */
+
+/* START COLLECTION */
 renderCollection("all");
+
 </script>
 
 </body>
